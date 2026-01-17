@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming & Scripting Languages Notes</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --code-bg: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Diagrams (CSS Visualizations) */
+        .diagram-box {
+            background: #fff;
+            border: 2px dashed var(--secondary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .tree {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .node {
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            background: white;
+            position: relative;
+            margin-bottom: 20px;
+            min-width: 150px;
+        }
+
+        .root-node {
+            background: var(--primary-color);
+            color: white;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .branch-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            position: relative;
+        }
+        
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .arrow-down {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin: 5px 0;
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Specific Highlights */
+        .highlight-box {
+            background-color: #e8f4f8;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        /* Form styling demo */
+        .form-demo {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .branch-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <!-- Mermaid JS for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true });</script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Web Programming & Scripting Languages</h1>
+
+    <!-- Scripting Language Section -->
+    <section>
+        <h2>Scripting Language</h2>
+        <p>Scripts are programs just like any other programming language. They can execute on the <strong>client-side</strong> or on the <strong>server-side</strong>. Scripting languages do not require a compilation step; instead, they are <strong>interpreted</strong>.</p>
+
+        <h3>Types of Scripting Languages</h3>
+        
+        <!-- Mermaid Diagram for Scripting Languages -->
+        <div class="diagram-box">
+            <div class="mermaid">
+flowchart TD
+    subgraph Scripting_Overview [" "]
+        direction TB
+        Main[Scripting Languages]
+        
+        %% Left Branch
+        Main --> Client[Client-Side Scripting]
+        Client --> ClientProc[Processed on Browser/Local Computer]
+        ClientProc --> ClientEx[Example: JavaScript]
+        
+        %% Right Branch
+        Main --> Server[Server-Side Scripting]
+        Server --> ServerProc[Runs on Server]
+        ServerProc --> ServerEx[Example: PHP]
+    end
+
+    %% Styling to match the image colors
+    style Main fill:#2c3e50,color:#fff,stroke:#2c3e50
+    style Client fill:#effaf6,stroke:#2c3e50
+    style Server fill:#fff9e6,stroke:#2c3e50
+            </div>
+        </div>
+
+        <h3>1. Client-Side Scripting Language</h3>
+        <p>Client-side scripts are processed on the browser or local computer. They allow changing the contents of the web page dynamically.</p>
+        <div class="highlight-box">
+            <strong>Functions:</strong>
+            <ol>
+                <li>Interact with temporary storage.</li>
+                <li>Make interactive web pages.</li>
+                <li>Interact with local storage.</li>
+                <li>Send requests for data to the server.</li>
+                <li>Send requests to the server properly.</li>
+                <li>Work as an interface between the server and users.</li>
+            </ol>
+        </div>
+
+        <h3>2. Server-Side Scripting Language</h3>
+        <p>It is a script that runs on a server, dealing with the generation of web page content.</p>
+        <div class="highlight-box">
+            <strong>Functions:</strong>
+            <ol>
+                <li>Querying the database.</li>
+                <li>Operations over the database.</li>
+                <li>Access/Write a file on the server.</li>
+                <li>Interact with other servers.</li>
+                <li>Structuring web applications.</li>
+                <li>Processing user input.</li>
+            </ol>
+        </div>
+    </section>
+
+
+    <!-- HTML Section -->
+    <section>
+        <h2>HTML (HyperText Markup Language)</h2>
+        <p>HTML is the standard markup language for creating web pages. It provides the structural foundation of websites by defining elements such as headings, paragraphs, links, images, forms, and multimedia content.</p>
+
+        <strong>Key Characteristics:</strong>
+        <ul>
+            <li>Markup Language</li>
+            <li>Platform Independent</li>
+            <li>Foundation of the Web</li>
+            <li>Static Content</li>
+        </ul>
+
+        <h3>Why is HTML Essential Before PHP?</h3>
+        <ol>
+            <li><strong>Output Layer:</strong> PHP often outputs HTML.</li>
+            <li><strong>Form Integration:</strong> PHP processes HTML forms.</li>
+            <li><strong>Template Structure:</strong> HTML provides the skeleton.</li>
+            <li><strong>Client-Server Model:</strong> HTML acts as the client-side interface.</li>
+        </ol>
+
+        <h3>HTML Elements and Tags</h3>
+        <p>HTML tags are keywords enclosed in angle brackets <code>&lt; &gt;</code>.</p>
+        <ul>
+            <li><strong>Paired Tags (Container Tags):</strong> Come in pairs. E.g., <code>&lt;p&gt; ... &lt;/p&gt;</code></li>
+            <li><strong>Self-Closing Tags (Empty Tags):</strong> No closing tag. E.g., <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code></li>
+        </ul>
+
+        <h3>Block-level vs Inline Elements</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Block-level Elements</strong></td>
+                    <td>Always start on a new line and take up the full width available.</td>
+                    <td><code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;h1&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Inline Elements</strong></td>
+                    <td>Do not start on a new line and only take up as much width as necessary.</td>
+                    <td><code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;img&gt;</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Text Content and Examples</h3>
+        <p><strong>Headings:</strong></p>
+        <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;</code></pre>
+
+        <p><strong>Hyperlinks:</strong></p>
+        <pre><code>&lt;a href="https://www.google.com" target="_blank"&gt;Visit Google&lt;/a&gt;</code></pre>
+
+        <p><strong>Lists:</strong></p>
+        <pre><code>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First Item&lt;/li&gt;
+    &lt;li&gt;Second Item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </section>
+
+    <!-- HTML Forms Section -->
+    <section>
+        <h2>HTML Forms</h2>
+        <p>Forms are the primary method for collecting user input on websites. In PHP, this input is processed on the server.</p>
+
+        <pre><code>&lt;form action="process.php" method="POST"&gt;
+    &lt;!-- Form elements go here --&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3>Form Attributes</h3>
+        <ul>
+            <li>action: URL where form data is sent.</li>
+            <li>method: HTTP method (GET or POST).</li>
+            <li>name : form identifer</li>
+            <li>target:where to display respone</li>
+            <li>enctype: Encoding type (Essential for file uploads: multipart/form-data).</li>
+        </ul>
+
+        <h3>Form Input Types</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Input Type</th>
+                    <th>Syntax Example</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Text</td>
+                    <td><code>&lt;input type="text" ...&gt;</code></td>
+                    <td>Single line text.</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><code>&lt;input type="password" ...&gt;</code></td>
+                    <td>Hides characters.</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><code>&lt;input type="email" ...&gt;</code></td>
+                    <td>Validates email format.</td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td><code>&lt;input type="number" ...&gt;</code></td>
+                    <td>Numeric input.</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td><code>&lt;input type="url" name="website" placeholder="https.example.com" required&gt;</code></td>
+                    <td>For website links (with placeholder).</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><code>&lt;input type="date" name="birthday"&gt;</code></td>
+                    <td>Date picker.</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td><code>&lt;input type="time" name="Appointment"&gt;</code></td>
+                    <td>Time picker.</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td><code>&lt;input type="color" name="themecolor"&gt;</code></td>
+                    <td>Color picker.</td>
+                </tr>
+                <tr>
+                    <td>File</td>
+                    <td><code>&lt;input type="file" ...&gt;</code></td>
+                    <td>File upload.</td>
+                </tr>
+                <tr>
+                    <td>Hidden</td>
+                    <td><code>&lt;input type="hidden" name="user_id" value="101"&gt;</code></td>
+                    <td>Hidden data field.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Visual Form Elements Example</h3>
+        <div class="form-demo">
+            <div class="form-group">
+                <label class="form-label">Radio Button (Single Selection):</label>
+                <input type="radio" name="gender" id="male"> <label for="male">Male</label>
+                <input type="radio" name="gender" id="female"> <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Checkbox (Multiple Selection):</label>
+                <input type="checkbox"> Coding
+                <input type="checkbox"> Design
+            </div>
+            <div class="form-group">
+                <label class="form-label">Dropdown List:</label>
+                <select class="form-input" style="width: 200px;">
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+        <!-- Additional Form Examples -->
+
+        <section>
+        <h2>Additional Form Elements</h2>
+
+        <h3>Text Area (Multi-line Text)</h3>
+        <pre><code>&lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="5"&gt;&lt;/textarea&gt;</code></pre>
+
+        <h3>Buttons</h3>
+        <pre><code>&lt;!-- submit button --&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+    &lt;!-- reset button --&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+
+    &lt;!-- regular button --&gt;
+    &lt;button type="button"&gt;Click Me&lt;/button&gt;</code></pre>
+
+        <h3>Form Elements and Attributes</h3>
+        <p>Labels</p>
+        <pre><code>&lt;!-- method 1 using 'for' attribute --&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input id="username" name="username" type="text"&gt;</code></pre>
+        </section>
+    
+    
+    
+
+    <!-- PHP Section -->
+    <section>
+        <h2>What is PHP</h2>
+        <p>The PHP(Hyper Test Preprocessir) is a server-side scripting language that allows web developers to create a dynamic content that interact with databases </p>
+        <p> PHP is a <strong>server-side scripting language</strong> embedded in HTML </p>
+        <p>It is integrated with a number of popular databases including MySQL,PostgreSQL,Oracle,sybase,informix and Microsoft SQL server</p>
+        <h3>Basic Syntax</h3>
+        <p>PHP scripts start with <code>&lt;?php</code> and end with <code>?&gt;</code>. Files use the <code>.php</code> extension.</p>
+        <pre><code>&lt;?php
+    echo "Hello World";
+    // PHP statements end with a semicolon
+?&gt;</code></pre>
+
+        <h3>Variables</h3>
+        <p>PHP is <strong>loosely typed</strong>,which means we dont have to explicitly state the tpye of variable
+        </p><p>Variables start with <code>$</code>followed by the variable name </p>
+        <p>A variable can not start with Number</p>
+        <pre><code>&lt;?php
+    $txt = "Rohan";
+    $x = 5;
+    echo $x; 
+?&gt;</code></pre>
+
+        <h3>Scope of Variables</h3>
+        <p>PHP has three different variable scopes: Local, Global, and Static.</p>
+
+        <!-- Mermaid Diagram for Variable Scope -->
+        <div class="diagram-box">
+            <div class="mermaid">
+flowchart TD
+    subgraph Container [" "]
+        direction TB
+        Main[Variable Scope]
+
+        %% Nodes
+        Local[Local]
+        Global[Global]
+        Static[Static]
+
+        LocalDesc[Declared inside function.<br>Accessible only inside.]
+        GlobalDesc[Declared outside function.<br>Accessible only outside.]
+        StaticDesc[Local variable that is<br>NOT deleted after execution.]
+
+        %% Connections
+        Main --> Local
+        Main --> Global
+        Main --> Static
+
+        Local --> LocalDesc
+        Global --> GlobalDesc
+        Static --> StaticDesc
+    end
+
+    %% Styling
+    style Main fill:#2c3e50,color:#fff,stroke:#2c3e50
+    style Local fill:#fff,stroke:#2c3e50,stroke-width:2px
+    style Global fill:#fff,stroke:#2c3e50,stroke-width:2px
+    style Static fill:#fff,stroke:#2c3e50,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h4>Code Examples for Scope:</h4>
+            
+            <p><strong>Local Scope:</strong></p>
+<pre><code>function myFunction() {
+    $x = 10; // Local
+    echo $x;
+}</code></pre>
+
+            <p><strong>Global Scope (using <code>global</code> keyword):</strong></p>
+<pre><code>$x = 5; $y = 5;
+function add() {
+    global $x, $y;
+    return $x + $y;
+}</code></pre>
+
+            <p><strong>Static Scope:</strong></p>
+<pre><code>function myTest() {
+    static $x = 0; // Value persists
+    echo $x;
+    $x++;
+}</code></pre>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
