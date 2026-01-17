@@ -1,0 +1,10 @@
+{
+  "subjects": [
+    { "key": "MATH", "path": "digitals/MATH/MATH.html", "icon": "∑"},
+    { "key": "OS",   "path": "digitals/OS/OS.html", "icon": "🖥️"},
+    { "key": "DAA",  "path": "digitals/DAA/DAA.html", "icon": "🧠"},
+    { "key": "WP",   "path": "digitals/WP/WP.html", "icon": "🌐"},
+    { "key": "CN",   "path": "digitals/CN/CN.html", "icon": "🔗"},
+    { "key": "DT",   "path": "digitals/DT/DT.html", "icon": "📊"}
+  ]
+}
