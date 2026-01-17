@@ -1,0 +1,9 @@
+# Ignore PDFs folder containing local copies
+Pdfs/
+
+# Node / Python / OS artifacts (sane defaults)
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
